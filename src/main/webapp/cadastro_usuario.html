@@ -5,13 +5,22 @@
     <title>Cadastro Usuario</title>
 </head>
 <body>
-<form method="post" action="/CadastroUsuario">
-    <label >First name:</label><br>
-    <input type="text" value="nome"><br>
-    <label >Last name:</label><br>
-    <input type="text" value="sobrenome"><br>
-    <input type="submit" value="Enviar"><br>
-    <input type="reset" value="Limpar"><br>
+<h3>Cadastro de Usuario</h3>
+
+<form method="post" action="CadastroUsuario">
+    <label>Nome:</label><br>
+    <input type="text" placeholder="Digite seu nome..." size="120" name="nome" autofocus><br>
+    <label>Login:</label><br>
+    <input type="text" name="Login" size="40"><br>
+    <label>Senha:</label><br>
+    <input type="password" name="Login" size="40"><br>
+
+    <label>Confirme a senha:</label><br>
+    <input type="password" name="senhaConfirmada" size="40"><br>
+    <p>
+        <input type="submit" value="Enviar"><br>
+        <input type="reset" value="Limpar"><br>
+    </p>
 </form>
 
 </body>
