@@ -17,12 +17,20 @@ public class CadastroUsuario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String nome = request.getParameter("nome");
-        String sobrenome = request.getParameter("sobrenome");
+        String login = request.getParameter("login");
+        String senha = request.getParameter("senha");
+        String senhaConfirmada = request.getParameter("senhaConfirmada");
 
         PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>" + nome + " " + sobrenome + "</h1>");
-        out.println("<h1>" + request.getMethod() + "</h1>");
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title> Cadastro realizado com sucesso!</title>");
+        out.println("</head>");
+        out.println("<body>");
+        out.println("<h4>Nome: " + nome );
+        out.println("<h4>Login: " + login );
+        out.println("<h4>Senha: " + senha );
+        out.println("<h4>Senha Confirmada: " + senhaConfirmada );
         out.println("</body></html>");
 
     }
