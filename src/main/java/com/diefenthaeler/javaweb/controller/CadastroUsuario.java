@@ -1,5 +1,7 @@
 package com.diefenthaeler.javaweb.controller;
 
+import com.diefenthaeler.javaweb.model.Usuario;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -16,10 +18,12 @@ public class CadastroUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String nome = request.getParameter("nome");
-        String login = request.getParameter("login");
-        String senha = request.getParameter("senha");
-        String senhaConfirmada = request.getParameter("senhaConfirmada");
+        Usuario usuario = Usuario.builder()
+                .nome(request.getParameter("nome"))
+                .email(request.getParameter("email"))
+                .login(request.getParameter("login"))
+                .senha(request.getParameter("senha"))
+                .build();
 
         PrintWriter out = response.getWriter();
         out.println("<html>");
@@ -27,10 +31,9 @@ public class CadastroUsuario extends HttpServlet {
         out.println("<title> Cadastro realizado com sucesso!</title>");
         out.println("</head>");
         out.println("<body>");
-        out.println("<h4>Nome: " + nome );
-        out.println("<h4>Login: " + login );
-        out.println("<h4>Senha: " + senha );
-        out.println("<h4>Senha Confirmada: " + senhaConfirmada );
+        out.println("<h4>Nome: " + usuario.getNome());
+        out.println("<h4>Login: " + usuario.getLogin());
+        out.println("<h4>Email: " + usuario.getEmail());
         out.println("</body></html>");
 
     }

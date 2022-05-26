@@ -1,33 +1,38 @@
-package com.diefenthaeler.javaweb.controller;
+package br.com.impacta.javawbe.servlets.projetojavaweb.controller;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import com.diefenthaeler.javaweb.model.Usuario;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.Optional;
 
-@WebServlet(name = "ValidaLogin", value = "/ValidaLogin")
+@WebServlet(name = "validaLogin", value = "/validaLogin")
 public class ValidaLogin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Usuario usuario = Usuario.builder()
+                .login(request.getParameter("login"))
+                .senha(request.getParameter("senha"))
+                .build();
 
-        String login = request.getParameter("login");
-        String senha = request.getParameter("senha");
+        if (usuario.getLogin() != null && usuario.getSenha() != null && usuario.getSenha().equals("123321")) {
+            request.getSession().setAttribute("usuario", usuario);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/sistema");
+            dispatcher.forward(request, response);
+            // cria servlet da página principal.
+        } else {
+            response.sendRedirect("/errologin.html");
+            // cria página de erro.
 
-        if (login != null && senha != null) {
-            if (login.equals("teste") && senha.equals("123321")) {
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("/sistema");
-                requestDispatcher.forward(request, response);
-            }
         }
-        // response.sendRedirect("/projeto-java-web/erroLogin");
-        PrintWriter out = response.getWriter();
-        out.println("Erro, login errado>");
-
     }
 }

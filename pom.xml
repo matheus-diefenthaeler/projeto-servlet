@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.diefenthaeler</groupId>
-    <artifactId>hello-servlet</artifactId>
+    <artifactId>projeto-java-web</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>hello-servlet</name>
     <packaging>war</packaging>
@@ -35,6 +35,12 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

@@ -11,13 +11,13 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="hello-servlet" />
+          <element id="module-output" name="projeto-java-web" />
         </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/hello-servlet-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="hello-servlet/web/Web" />
+      <element id="javaee-facet-resources" facet="projeto-java-web/web/Web" />
     </root>
   </artifact>
 </component>
