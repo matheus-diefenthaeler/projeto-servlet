@@ -1,4 +1,4 @@
-package com.diefenthaeler.helloservlet;
+package com.diefenthaeler.javaweb.controller;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
