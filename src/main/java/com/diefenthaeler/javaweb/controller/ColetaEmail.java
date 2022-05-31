@@ -28,7 +28,7 @@ public class ColetaEmail extends HttpServlet {
         out.println("<title>Cadastro de email </title>");
         out.println("</head>");
         out.println("<body>");
-        out.println("<h1>" + usuarioSistema.getNome() + " Informe seu email: " + "</h1>");
+        out.println("<h1>" + usuarioSistema.getLogin() + " Informe seu email: " + "</h1>");
         out.println("<form method=\"post\" action=\"adicionaEmailCookie\">");
         out.println("Email: <input type=\"text\" name=\"email\" size=\"50\"><br>");
         out.println("<input type=\"Submit\" value=\"Enviar\">");
